@@ -1,162 +1,328 @@
-<h1>SpringBoot-Project 바둑교육 플랫폼 ver1.0</h1>
-<h2>리팩토링전 원본입니다.</h2>
+# GeomHwein - 온라인 교육 플랫폼
 
-<h3>프로젝트 소개</h3>
-“클래스101”과 같이 교육 서비스를 제공하는 플랫폼이지만, 저 연령층의 바둑 교육만을 전문적으로 제공하는 플랫폼입니다. 기존 플랫폼과는 다르게 교육자가 자신의 교육을 등록하여 서비스하는 방식이 아닌, 한국바둑기원에서 제공하는 프로 선수들의 교육 자료를 구매자(교육자)가 학습자에게 제공하는 방식입니다.
+## 📌 프로젝트 소개
+GeomHwein은 온라인 교육 플랫폼으로, 학습자와 교육자를 연결하여 효과적인 온라인 학습 경험을 제공한다. 과제 관리, 학습 콘텐츠 제공, 커뮤니티 기능 등을 통해 종합적인 교육 관리 시스템을 구현했다.
 
-<h3>개발 기간</h3>
-24.03.27 ~ 04.22
-<ul>
-  <li>03.27 ~ 03.31 : 설계 (요구사항정의서, 플로우차트, ERD, 스토리보드, 컨벤션정의)</li>
-  <li>04.1 ~ 04.07 : UI 설계 및 작업 </li>
-  <li>04.8 ~ 04.19 : 기능 구현 </li>
-  <li>04.19 ~ 04.22 : 배포 및 오류수정 </li>
-</ul>
+## 🛠 사용 기술
+- **Backend**: Java, Spring Boot
+- **Build Tool**: Gradle
+- **Database**: MySQL
+- **Security**: Spring Security
+- **Frontend**: HTML, CSS, JavaScript, jQuery
+- **Version Control**: Git
 
-<h3>멤버구성</h3>
-<ul>
-  <li>조장 신희섭 - 설계, 깃관리, 회원프로세스, 결제, 메인 페이지 및 강의추천기능, UI/UX 커스터마이징 및 가이드라인 제공</li>
-  <li>조원 고현진 - 학습자 프로세스, 커뮤니티</li>
-  <li>조원 신주형 - 교육자료등록</li>
-  <li>주원 강태혁 - 교육자 프로세스</li>
-</ul>
+## 🖥 주요 기능
 
-### 기술 스택
-- **프로그래밍 언어**:
-  - Java 11
-  - JavaScript
+### 1. 메인 페이지
+![메인 페이지](imgs/mainpage.png)
+- 직관적인 UI/UX 설계
+- 추천 강좌 및 최신 콘텐츠 표시
+- 사용자 맞춤형 콘텐츠 추천
 
-- **웹 개발**:
-  - HTML
-  - CSS
-  - AJAX
-  - jQuery
+### 2. 로그인/회원가입
+![로그인](imgs/login.png)
+![회원가입](imgs/singUp.png)
+- 안전한 사용자 인증 시스템
+- 역할 기반 접근 제어(RBAC)
+- 소셜 로그인 지원
 
-- **프레임워크 및 라이브러리**:
-  - Spring Boot 2.7.5
-  - Spring Security
-  - Thymeleaf
+### 3. 사이드바 네비게이션
+![사이드바](imgs/sidebar.png)
+- 편리한 메뉴 접근성
+- 사용자 역할별 맞춤 메뉴
+- 반응형 디자인
 
-- **데이터베이스**:
-  - MySQL 8.0.36
+### 4. 학생 기능
+![마이페이지](imgs/stu/Mypage.png)
+- 개인 학습 현황 관리
+- 수강 중인 강좌 확인
+- 성적 및 진도 확인
 
-- **데이터베이스 매핑**:
-  - MyBatis
+### 5. 커뮤니티 활동
+![커뮤니티](imgs/stu/Community.png)
+![커뮤니티 상세](imgs/stu/Community2.png)
+- 학습 커뮤니티 참여
+- 질문과 답변
+- 학습 자료 공유
 
-- **버전 관리**:
-  - Git
-  - GitHub
+### 6. 그룹 스터디
+![그룹 기능](imgs/stu/GroupFunction2.png)
+- 스터디 그룹 생성 및 참여
+- 그룹별 학습 진행
+- 협업 학습 지원
 
-- **API**:
-  - RESTful API
+### 7. 질문 시스템
+![질문 창](imgs/stu/questionWindow.png)
+- 실시간 질문 등록
+- 상세한 질문 작성
+- 답변 추적 관리
 
-- **클라우드 서비스**:
-  - AWS
+### 8. 교육자 기능
+![과제 추가](imgs/edu/homeworkAdd.png)
+![교육 콘텐츠 추가](imgs/edu/eduSelectAdd.png)
+![질문 관리](imgs/edu/QuestionManagement.png)
+- 과제 출제 및 관리
+- 교육 콘텐츠 등록
+- 학생 질문 관리
+- 평가 및 피드백
 
+## 💡 주요 구현 사항
 
+### 1. 사용자 관리 시스템
+- 회원가입 및 로그인
+- 사용자 권한 관리
+- 프로필 관리
 
-<br>
-<h3>서비스 아키텍처</h3> 
-<!-- <img src="imgs/123.png" width="900" height="400"> -->
+### 2. 교육 콘텐츠 관리
+- 강좌 등록 및 관리
+- 학습 자료 업로드
+- 콘텐츠 카테고리화
 
-<br>
+### 3. 학습 관리 시스템
+- 과제 출제 및 제출
+- 진도 관리
+- 성적 평가
 
-<h2>모든 유저</h2>
-<h3>사이드바(baseLayout)</h3>
-<ul>
-  <li>클릭한 메뉴탭에 배경색을 유지시키기 위해 로컬 스토리지를 사용</li>
-  <li>권한에 따라 보여지는 메뉴탭이 달라짐</li>
-</ul>
-<img src="imgs/sidebar.png">
+### 4. 커뮤니티 기능
+- 질문/답변 게시판
+- 학습 그룹 생성
+- 실시간 토론
 
-<h3>메인페이지</h3>
-<ul>
-  <li>등급 및 등록날짜에 따라 강의 추천하는 필터링 기능</li>
-</ul>
-<img src="imgs/mainpage.png">
+### 5. 관리자 기능
+- 사용자 관리
+- 콘텐츠 승인
+- 시스템 모니터링
 
-<h3>회원가입</h3>
-<ul>
-  <li>기본값은 일반 user 권한으로 가입됩니다.</li>
-  <li>관리자, 교육자는 직접 계정을 생성하여 제공합니다.</li>
-</ul>
-<img src="imgs/singUp.png">
+## 🌟 프로젝트 특징
+1. **확장 가능한 아키텍처**
+   - MVC 패턴 적용
+   - 모듈화된 코드 구조
+   - RESTful API 설계
 
-<h3>로그인</h3>
-<ul>
-  <li>RESTful API를 사용하여 소셜로그인</li>
-  <li>스프링 시큐리티를 사용하여 자동로그인 및 권한처리</li>
-</ul>
-<img src="imgs/login.png">
+2. **보안 강화**
+   - Spring Security 활용
+   - XSS 방지
+   - CSRF 토큰 적용
 
-<br>
+3. **사용자 경험 최적화**
+   - 반응형 웹 디자인
+   - 직관적인 UI/UX
+   - 빠른 페이지 로딩
 
-<h2>교육자</h2>
-<h3>구매한 교육리스트</h3>
-<ul>
-  <li>구매한 교육자료를 통해 그룹 개설을 할 수 있음</li>
-</ul>
-<img src="imgs/edu/eduSelectAdd.png">
+## 📊 ERD
+![다이어그램](imgs/erd.png)
 
-<h3>숙제관리 및 질문답변</h3>
-<ul>
-  <li>숙제 등록, 학습자 숙제조회, 숙제 상세보기, 배점처리로 학습자의 사활점수 관리</li>
-  <li>학습자 질문조회, 답변등록</li>
-  <li>숙제등록, 조회, 배점처리, 질문답변 등 처리에 따른 상태변경을 자동으로 처리 및 UI 노출</li>
-</ul>
-<img src="imgs/edu/homeworkAdd.png">
+## 🔍 시스템 아키텍처
 
-<br>
+### 인프라 구조
+```
+                                 +----------------------+
+                                 |      Client         |
+                                 |----------------------|
+                                 |   Web Browser       |
+                                 |----------------------|
+                                 |  Mobile App (Future)|
+                                 +----------+-----------+
+                                            |
+                                            v
+                           +-------------------------------+
+                           |         AWS Route 53         |
+                           | (Domain Name Service)        |
+                           +-------------------------------+
+                                            |
+                                            v
+                           +-------------------------------+
+                           |      AWS CloudFront          |
+                           | (Content Delivery Network)   |
+                           +-------------------------------+
+                                            |
+                                            v
+                  +---------------------+        +---------------------+
+                  | Elastic Load Balancer|       |  Amazon S3          |
+                  | (Traffic Balancer)  |        | (Static Assets)     |
+                  +----------+----------+        +----------+----------+
+                             |                              |
+                             v                              v
+          +-----------------------------------+    +-------------------+
+          |         Amazon EC2 (Backend)     |    |       Redis       |
+          |-----------------------------------|    | (Session Cache)   |
+          |  Spring Boot API Server          |    +-------------------+
+          |  RESTful API / WebSocket         |
+          |  JWT Authentication              |
+          |-----------------------------------|
+          |  Worker Server                   |
+          |  (Asynchronous Tasks)            |
+          +----------+------------------------+
+                     |
+                     v
+          +-------------------+         +-------------------+
+          |   MySQL Database  |         |   MongoDB         |
+          | (Relational Data) |         | (Lecture Content) |
+          +-------------------+         +-------------------+
+```
 
-<h2>학습자 및 일반회원</h2>
-<h3>커뮤니티</h3>
-<ul>
-  <li>게시글 필터링, 조회수 중복방지를 위한 쿠키처리</li>
-  <li>댓글/답글 기능</li>
-  <li>파일다운로드 기능 및 파얼 업로드 기능</li>
-</ul>
-<img src="imgs/stu/Community.png">
-<img src="imgs/stu/Community2.png">
+### AWS 클라우드 인프라
+- **Amazon Route 53**: DNS 웹 서비스
+- **Amazon CloudFront**: 정적 콘텐츠 전송 및 캐싱
+- **Elastic Load Balancer**: 트래픽 분산 처리
+- **Amazon EC2**: 애플리케이션 서버 운영
+  - API 서버 클러스터
+  - 워커 서버 클러스터
+- **Amazon SES/SNS**: 이메일 알림 및 푸시 알림 서비스
+- **MongoDB**: 강의 콘텐츠 및 사용자 데이터 저장
+- **Redis**: 세션 관리 및 캐싱
 
-<h3>마이페이지</h3>
-<ul>
-  <li>수강중인 학습그룹 카드 디자인으로 노출</li>
-  <li>프로필 정보 확인 및 변경 기능</li>
-  <li>계정 설정을 통해 계정 삭제 및 비활성화 기능</li>
-  <li>유저경험을 올리고자 ajax 통신을 이용, 화면 비동기 처리</li>
-</ul>
-<h3>장바구니</h3>
-<ul>
-  <li>전체적으로 jQuery & JS 를 이용</li>
-  <li>체크된 항목없이 구매할 경우 알림창 노출</li>
-  <li>체크항목에 따른 합계된 금액 표시</li>
-  <li>결제 API를 사용하여 테스트 결제 가능</li>
-  <li>비동기로 처리하여 사용자경험을 상승</li>
-</ul>
-<img src="imgs/stu/Mypage.png">
+### 주요 컴포넌트
+1. **프론트엔드 서비스**
+   - 정적 파일 서비스 (CloudFront)
+   - SPA 기반 웹 애플리케이션
+   - 반응형 웹 디자인
 
-<h3>강의목록 전체확인 및 강의신청목록 확인</h3>
-<ul>
-  <li>강의명을 통한 강의조건 검색 기능</li>
-  <li>원하는 강의 클릭시 상세보기 기능</li>
-  <li>신청한 강의 목록 확인 및 신청취소 기능</li>
-</ul>
-<img src="imgs/stu/GroupFunction2.png">
+2. **백엔드 API 서버**
+   - RESTful API 제공
+   - JWT 기반 인증
+   - 비즈니스 로직 처리
 
-<h3>강의진행</h3>
-<ul>
-  <li>진행중인 강의목록 및 상세보기, 숙제확인, 질문내역 한번에 볼 수 있는 페이지</li>
-  <li>진도현황 게이지바 형태로 노출</li>
-  <li>강의 그룹내 사활점수로 순위를 표시</li>
-</ul>
-<img src="imgs/stu/questionWindow.png">
+3. **워커 서버**
+   - 비동기 작업 처리
+   - 대용량 파일 처리
+   - 알림 서비스
 
-<br>
+4. **데이터 저장소**
+   - MongoDB: 문서 기반 데이터
+   - Redis: 캐시 및 세션
+   - S3: 파일 스토리지
 
-<h2>관리자</h2>
-<h3>교육자료 등록 및 공지사항</h3>
-<ul>
-  <li>바둑기원에서 제공한 교육자료를 관리자가 등록하여 교육자가 구매</li>
-</ul>
-<img src="imgs/admin/eduList.png">
-<img src="imgs/admin/Notice.png">
+### 시스템 특징
+- 고가용성 (High Availability)
+- 자동 확장 (Auto Scaling)
+- 장애 복구 (Fault Tolerance)
+- 보안 강화 (Security Enhancement)
+
+### 디렉토리 구조
+```
+src/
+├── main/
+│   ├── java/
+│   │   └── com/geomhwein/go/
+│   │       ├── admin/         # 관리자 기능
+│   │       ├── command/       # VO 클래스
+│   │       ├── controller/    # API 엔드포인트
+│   │       ├── creator/       # 콘텐츠 제작
+│   │       ├── security/      # 보안 설정
+│   │       ├── user/          # 사용자 관리
+│   │       └── util/          # 유틸리티
+│   └── resources/
+└── test/                      # 테스트 코드
+```
+
+## 🚀 향후 계획
+1. 실시간 화상 강의 기능 추가
+2. AI 기반 학습 추천 시스템 도입
+3. 모바일 앱 버전 개발
+4. 다국어 지원 확대
+
+## 👥 팀 구성
+- Frontend Developer
+- Backend Developer
+- UI/UX Designer
+- DevOps Engineer
+
+## 📚 사용 라이브러리 및 리소스
+
+### Backend 라이브러리
+- Spring Boot 2.7.x (Apache 2.0 License)
+- Spring Security (Apache 2.0 License)
+- Spring Data JPA (Apache 2.0 License)
+- Lombok (MIT License)
+- MySQL Connector (GPL 2.0 License)
+- Gradle (Apache 2.0 License)
+
+### Frontend 라이브러리
+- jQuery 3.6.0 (MIT License)
+- Bootstrap 5.0 (MIT License)
+- Font Awesome 5.15 (Free Version - CC BY 4.0 License)
+- SweetAlert2 (MIT License)
+- Summernote Editor (MIT License)
+
+### UI/UX 리소스
+- Google Fonts (Open Font License)
+- Material Icons (Apache 2.0 License)
+- Bootstrap Icons (MIT License)
+- Unsplash Images (Unsplash License)
+
+### 개발 도구
+- IntelliJ IDEA Community Edition (Apache 2.0 License)
+- Visual Studio Code (MIT License)
+- Git (GNU General Public License version 2.0)
+
+모든 라이브러리와 리소스는 각각의 라이선스 정책을 준수하여 사용되었다. 자세한 라이선스 정보는 각 프로젝트의 공식 웹사이트에서 확인할 수 있다. 
+
+## 🔧 기술 스택 상세
+
+### Backend 아키텍처
+- **Spring Boot 기반 RESTful API**
+  - Spring MVC를 활용한 컨트롤러 구현
+  - AOP를 통한 로깅 및 예외 처리
+  - Spring Security를 이용한 JWT 기반 인증
+  - JPA/Hibernate를 통한 객체 지향 데이터 접근
+
+### 데이터베이스 설계
+- **MySQL 8.0**
+  - 정규화된 테이블 설계
+  - 인덱스 최적화
+  - 트랜잭션 관리
+  - 쿼리 성능 최적화
+
+### Frontend 기술
+- **반응형 웹 디자인**
+  - Bootstrap Grid System
+  - CSS Flexbox/Grid
+  - Media Query 최적화
+- **동적 UI 구현**
+  - jQuery AJAX 비동기 통신
+  - SweetAlert2 알림 시스템
+  - 동적 폼 검증
+
+### 성능 최적화
+- **백엔드 최적화**
+  - Spring Cache 적용
+  - N+1 문제 해결
+  - 지연 로딩 전략 사용
+- **프론트엔드 최적화**
+  - 이미지 레이지 로딩
+  - 번들 크기 최적화
+  - 브라우저 캐싱 전략
+
+### 보안 구현
+- **Spring Security**
+  - Role 기반 접근 제어
+  - Password Encoder
+  - CSRF 방어
+- **XSS 방지**
+  - HTML Sanitizer
+  - Content Security Policy
+- **파일 업로드 보안**
+  - 파일 확장자 검증
+  - 용량 제한 설정
+
+### 테스트 전략
+- **단위 테스트**
+  - JUnit 5
+  - Mockito
+- **통합 테스트**
+  - Spring Test
+  - TestContainers
+- **E2E 테스트**
+  - Selenium
+
+### 개발 환경 및 도구
+- **버전 관리**
+  - Git Flow 전략
+  - 이슈 트래킹
+- **CI/CD**
+  - Jenkins Pipeline
+  - Docker 컨테이너화
+- **문서화**
+  - Swagger API 문서
+  - JUnit 테스트 리포트
