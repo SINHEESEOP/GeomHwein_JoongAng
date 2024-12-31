@@ -24,7 +24,6 @@ GeomHwein은 온라인 교육 플랫폼으로, 학습자와 교육자를 연결�
 ![회원가입](imgs/singUp.png)
 - 안전한 사용자 인증 시스템
 - 역할 기반 접근 제어(RBAC)
-- 소셜 로그인 지원
 
 ### 3. 사이드바 네비게이션
 ![사이드바](imgs/sidebar.png)
@@ -112,70 +111,9 @@ GeomHwein은 온라인 교육 플랫폼으로, 학습자와 교육자를 연결�
 ## 📊 ERD
 ![다이어그램](imgs/erd.png)
 
-## 🔍 시스템 아키텍처
-
-### 인프라 구조
-```
-                                 +----------------------+
-                                 |      Client         |
-                                 |----------------------|
-                                 |   Web Browser       |
-                                 |----------------------|
-                                 |  Mobile App (Future)|
-                                 +----------+-----------+
-                                            |
-                                            v
-                           +-------------------------------+
-                           |         AWS Route 53         |
-                           | (Domain Name Service)        |
-                           +-------------------------------+
-                                            |
-                                            v
-                           +-------------------------------+
-                           |      AWS CloudFront          |
-                           | (Content Delivery Network)   |
-                           +-------------------------------+
-                                            |
-                                            v
-                  +---------------------+        +---------------------+
-                  | Elastic Load Balancer|       |  Amazon S3          |
-                  | (Traffic Balancer)  |        | (Static Assets)     |
-                  +----------+----------+        +----------+----------+
-                             |                              |
-                             v                              v
-          +-----------------------------------+    +-------------------+
-          |         Amazon EC2 (Backend)     |    |       Redis       |
-          |-----------------------------------|    | (Session Cache)   |
-          |  Spring Boot API Server          |    +-------------------+
-          |  RESTful API / WebSocket         |
-          |  JWT Authentication              |
-          |-----------------------------------|
-          |  Worker Server                   |
-          |  (Asynchronous Tasks)            |
-          +----------+------------------------+
-                     |
-                     v
-          +-------------------+         +-------------------+
-          |   MySQL Database  |         |   MongoDB         |
-          | (Relational Data) |         | (Lecture Content) |
-          +-------------------+         +-------------------+
-```
-
-### AWS 클라우드 인프라
-- **Amazon Route 53**: DNS 웹 서비스
-- **Amazon CloudFront**: 정적 콘텐츠 전송 및 캐싱
-- **Elastic Load Balancer**: 트래픽 분산 처리
-- **Amazon EC2**: 애플리케이션 서버 운영
-  - API 서버 클러스터
-  - 워커 서버 클러스터
-- **Amazon SES/SNS**: 이메일 알림 및 푸시 알림 서비스
-- **MongoDB**: 강의 콘텐츠 및 사용자 데이터 저장
-- **Redis**: 세션 관리 및 캐싱
 
 ### 주요 컴포넌트
 1. **프론트엔드 서비스**
-   - 정적 파일 서비스 (CloudFront)
-   - SPA 기반 웹 애플리케이션
    - 반응형 웹 디자인
 
 2. **백엔드 API 서버**
@@ -189,15 +127,10 @@ GeomHwein은 온라인 교육 플랫폼으로, 학습자와 교육자를 연결�
    - 알림 서비스
 
 4. **데이터 저장소**
-   - MongoDB: 문서 기반 데이터
+   - MySQL: 문서 기반 데이터
    - Redis: 캐시 및 세션
    - S3: 파일 스토리지
 
-### 시스템 특징
-- 고가용성 (High Availability)
-- 자동 확장 (Auto Scaling)
-- 장애 복구 (Fault Tolerance)
-- 보안 강화 (Security Enhancement)
 
 ### 디렉토리 구조
 ```
@@ -223,10 +156,7 @@ src/
 4. 다국어 지원 확대
 
 ## 👥 팀 구성
-- Frontend Developer
 - Backend Developer
-- UI/UX Designer
-- DevOps Engineer
 
 ## 📚 사용 라이브러리 및 리소스
 
@@ -263,16 +193,11 @@ src/
 ### Backend 아키텍처
 - **Spring Boot 기반 RESTful API**
   - Spring MVC를 활용한 컨트롤러 구현
-  - AOP를 통한 로깅 및 예외 처리
   - Spring Security를 이용한 JWT 기반 인증
-  - JPA/Hibernate를 통한 객체 지향 데이터 접근
 
 ### 데이터베이스 설계
 - **MySQL 8.0**
   - 정규화된 테이블 설계
-  - 인덱스 최적화
-  - 트랜잭션 관리
-  - 쿼리 성능 최적화
 
 ### Frontend 기술
 - **반응형 웹 디자인**
@@ -284,15 +209,6 @@ src/
   - SweetAlert2 알림 시스템
   - 동적 폼 검증
 
-### 성능 최적화
-- **백엔드 최적화**
-  - Spring Cache 적용
-  - N+1 문제 해결
-  - 지연 로딩 전략 사용
-- **프론트엔드 최적화**
-  - 이미지 레이지 로딩
-  - 번들 크기 최적화
-  - 브라우저 캐싱 전략
 
 ### 보안 구현
 - **Spring Security**
@@ -306,23 +222,7 @@ src/
   - 파일 확장자 검증
   - 용량 제한 설정
 
-### 테스트 전략
-- **단위 테스트**
-  - JUnit 5
-  - Mockito
-- **통합 테스트**
-  - Spring Test
-  - TestContainers
-- **E2E 테스트**
-  - Selenium
 
 ### 개발 환경 및 도구
 - **버전 관리**
   - Git Flow 전략
-  - 이슈 트래킹
-- **CI/CD**
-  - Jenkins Pipeline
-  - Docker 컨테이너화
-- **문서화**
-  - Swagger API 문서
-  - JUnit 테스트 리포트
