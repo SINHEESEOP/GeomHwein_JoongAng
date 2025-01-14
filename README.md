@@ -23,7 +23,7 @@ GeomHwein은 온라인 교육 플랫폼으로, 학습자와 교육자를 연결�
 ![로그인](imgs/login.png)
 ![회원가입](imgs/singUp.png)
 - 안전한 사용자 인증 시스템
-- 역할 기반 접근 제어(RBAC)
+- 역할 기반 접근 제어
 
 ### 3. 사이드바 네비게이션
 ![사이드바](imgs/sidebar.png)
