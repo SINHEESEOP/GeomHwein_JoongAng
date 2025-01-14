@@ -100,8 +100,6 @@ GeomHwein은 온라인 교육 플랫폼으로, 학습자와 교육자를 연결�
 
 2. **보안 강화**
    - Spring Security 활용
-   - XSS 방지
-   - CSRF 토큰 적용
 
 3. **사용자 경험 최적화**
    - 반응형 웹 디자인
@@ -118,17 +116,15 @@ GeomHwein은 온라인 교육 플랫폼으로, 학습자와 교육자를 연결�
 
 2. **백엔드 API 서버**
    - RESTful API 제공
-   - JWT 기반 인증
    - 비즈니스 로직 처리
 
 3. **워커 서버**
    - 비동기 작업 처리
-   - 대용량 파일 처리
+   - 파일 처리
    - 알림 서비스
 
 4. **데이터 저장소**
-   - MySQL: 문서 기반 데이터
-   - Redis: 캐시 및 세션
+   - MySQL
    - S3: 파일 스토리지
 
 
@@ -152,8 +148,7 @@ src/
 ## 🚀 향후 계획
 1. 실시간 화상 강의 기능 추가
 2. AI 기반 학습 추천 시스템 도입
-3. 모바일 앱 버전 개발
-4. 다국어 지원 확대
+3. 다국어 지원 확대
 
 ## 👥 팀 구성
 - Backend Developer
@@ -164,16 +159,16 @@ src/
 - Spring Boot 2.7.x (Apache 2.0 License)
 - Spring Security (Apache 2.0 License)
 - Spring Data JPA (Apache 2.0 License)
-- Lombok (MIT License)
+- Lombok 
 - MySQL Connector (GPL 2.0 License)
 - Gradle (Apache 2.0 License)
 
 ### Frontend 라이브러리
-- jQuery 3.6.0 (MIT License)
-- Bootstrap 5.0 (MIT License)
+- jQuery 3.6.0 
+- Bootstrap 5.0 
 - Font Awesome 5.15 (Free Version - CC BY 4.0 License)
-- SweetAlert2 (MIT License)
-- Summernote Editor (MIT License)
+- SweetAlert2 
+- Summernote Editor 
 
 ### UI/UX 리소스
 - Google Fonts (Open Font License)
@@ -213,11 +208,8 @@ src/
 ### 보안 구현
 - **Spring Security**
   - Role 기반 접근 제어
-  - Password Encoder
+  - Password Encode
   - CSRF 방어
-- **XSS 방지**
-  - HTML Sanitizer
-  - Content Security Policy
 - **파일 업로드 보안**
   - 파일 확장자 검증
   - 용량 제한 설정
